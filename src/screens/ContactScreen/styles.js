@@ -55,6 +55,7 @@ export const PressableLink = styled.Text`
   margin-bottom: ${RFPercentage(1)}px;
   background-color: #087433;
   border-radius: 5;
+  padding: 2%;
 `
 
 export const InfoContainer = styled.View`

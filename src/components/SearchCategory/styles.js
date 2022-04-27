@@ -16,4 +16,5 @@ export const BaloonTitle = styled.Text`
   font-family: ${({theme}) => theme.fonts.medium};
   margin: 0px 35px;
   height: ${RFValue(95)};
+  font-size: ${RFValue(12)}px;
 `

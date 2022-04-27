@@ -12,7 +12,11 @@ export default function NewsFeed({navigation}) {
 
   const [allPosts, setAllPosts] = useState([]);
   const [postsBrazil, setPostsBrazil] = useState([]);
+  const [postsAM, setPostsAM] = useState([]);
+  const [postsFun, setPostsFun] = useState([]);
   const [postsWorld, setPostsWorld] = useState([]);
+  const [postsPolitics, setPostsPolitics] = useState([]);
+  const [postsPolice, setPostsPolice] = useState([]);
   const [postsSports, setPostsSports] = useState([]);
   const [postsCulture, setPostsCulture] = useState([]);
   const [masterData, setMasterData] = useState([]);
@@ -23,6 +27,10 @@ export default function NewsFeed({navigation}) {
     fetchBrazil();
     fetchWorld();
     fetchSports();
+    fetchPolitics();
+    fetchPolice();
+    fetchAM();
+    fetchFun();
     fetchCulture();
   }, [setAllPosts]);
 
@@ -31,6 +39,54 @@ export default function NewsFeed({navigation}) {
       .then((response) => response.json())
       .then((responseJson) => {
         setAllPosts(responseJson);
+        setMasterData(responseJson); 
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const fetchAM = () => {
+    fetch(`${ApiPostFisc}/posts?_embed&categories=13&per_page=80`)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        setPostsAM(responseJson);
+        setMasterData(responseJson); 
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const fetchPolitics = () => {
+    fetch(`${ApiPostFisc}/posts?_embed&categories=11&per_page=80`)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        setPostsPolitics(responseJson);
+        setMasterData(responseJson); 
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const fetchPolice = () => {
+    fetch(`${ApiPostFisc}/posts?_embed&categories=22&per_page=80`)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        setPostsPolice(responseJson);
+        setMasterData(responseJson); 
+      })
+      .catch((error) => {
+        console.error(error);
+      });
+  };
+
+  const fetchFun = () => {
+    fetch(`${ApiPostFisc}/posts?_embed&categories=5194&per_page=80`)
+      .then((response) => response.json())
+      .then((responseJson) => {
+        setPostsFun(responseJson);
         setMasterData(responseJson); 
       })
       .catch((error) => {
@@ -92,8 +148,16 @@ export default function NewsFeed({navigation}) {
     setPostsWorld([]);
     setPostsSports([]);
     setPostsCulture([]);
+    setPostsAM([]);
+    setPostsFun([]);
+    setPostsPolitics([]);
+    setPostsPolice([]);
+    fetchAM();
+    fetchFun();
     fetchAll();
     fetchBrazil();
+    fetchPolice();
+    fetchPolitics();
     fetchWorld();
     fetchSports();
     fetchCulture();
@@ -101,7 +165,7 @@ export default function NewsFeed({navigation}) {
 
   const ItemView = ({ item }) => {
     return (
-      <View>
+      <View key={item.id}>
          <ImageBackground source={image} resizeMode="cover" style={styles.image}>
             <TouchableOpacity
             onLongPress={() =>
@@ -148,11 +212,11 @@ export default function NewsFeed({navigation}) {
         tabBarUnderlineStyle={styles.underlineStyle}
         
       >
-        <View  key={'1'} tabLabel={'Geral'} style={{flex:1}}>
+        <View  key={'1'} tabLabel={'Amazonas'} style={{flex:1}}>
       <></>
-      {allPosts.length > 0 ? (
+      {postsBrazil.length > 0 ? (
       <FlatList
-        data={allPosts}
+        data={postsBrazil}
         renderItem={ItemView}
         style={styles.listcontainer}
         showsVerticalScrollIndicator={false}
@@ -170,7 +234,75 @@ export default function NewsFeed({navigation}) {
         <ActivityIndicator size={'small'} color={'#087433'} style={{flex: 1, justifyContent: 'center', alignItems:'center'}}/>    
       )}
         </View>
-        <View  key={'2'} tabLabel={'Mundo'} style={{flex:1}}>
+        <View  key={'2'} tabLabel={'Política'} style={{flex:1}}>
+      <></>
+      {postsPolitics.length > 0 ? (
+      <FlatList
+        data={postsPolitics}
+        renderItem={ItemView}
+        style={styles.listcontainer}
+        showsVerticalScrollIndicator={false}
+        keyExtractor={(item, index) => index.toString()}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor="#fff"
+            colors={["#087433"]}
+          />
+        }
+      />
+      ) : (
+        <ActivityIndicator size={'small'} color={'#087433'} style={{flex: 1, justifyContent: 'center', alignItems:'center'}}/>    
+      )}
+        </View>
+        <View  key={'3'} tabLabel={'Polícia'} style={{flex:1}}>
+      <></>
+      {postsPolice.length > 0 ? (
+      <FlatList
+        data={postsPolice}
+        renderItem={ItemView}
+        style={styles.listcontainer}
+        showsVerticalScrollIndicator={false}
+        keyExtractor={(item, index) => index.toString()}
+        
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor="#fff"
+            colors={["#087433"]}
+          />
+        }
+      />
+      ) : (
+        <ActivityIndicator size={'small'} color={'#087433'} style={{flex: 1, justifyContent: 'center', alignItems:'center'}}/>    
+      )}
+        </View>
+        
+        <View  key={'4'} tabLabel={'Nacional'} style={{flex:1}}>
+      <></>
+      {postsBrazil.length > 0 ? (
+      <FlatList
+        data={postsBrazil}
+        renderItem={ItemView}
+        style={styles.listcontainer}
+        showsVerticalScrollIndicator={false}
+        keyExtractor={(item, index) => index.toString()}
+        refreshControl={
+          <RefreshControl
+            refreshing={refreshing}
+            onRefresh={onRefresh}
+            tintColor="#fff"
+            colors={["#087433"]}
+          />
+        }
+      />
+      ) : (
+        <ActivityIndicator size={'small'} color={'#087433'} style={{flex: 1, justifyContent: 'center', alignItems:'center'}}/>    
+      )}
+        </View>
+        <View  key={'5'} tabLabel={'Mundo'} style={{flex:1}}>
       <></>
       {postsWorld.length > 0 ? (
       <FlatList
@@ -192,16 +324,15 @@ export default function NewsFeed({navigation}) {
         <ActivityIndicator size={'small'} color={'#087433'} style={{flex: 1, justifyContent: 'center', alignItems:'center'}}/>    
       )}
         </View>
-        <View  key={'3'} tabLabel={'Brasil'} style={{flex:1}}>
+        <View  key={'7'} tabLabel={'Entretenimento'} style={{flex:1}}>
       <></>
-      {allPosts.length > 0 ? (
+      {postsFun.length > 0 ? (
       <FlatList
-        data={postsBrazil}
+        data={postsFun}
         renderItem={ItemView}
         style={styles.listcontainer}
         showsVerticalScrollIndicator={false}
         keyExtractor={(item, index) => index.toString()}
-        
         refreshControl={
           <RefreshControl
             refreshing={refreshing}
@@ -215,34 +346,11 @@ export default function NewsFeed({navigation}) {
         <ActivityIndicator size={'small'} color={'#087433'} style={{flex: 1, justifyContent: 'center', alignItems:'center'}}/>    
       )}
         </View>
-        
-        <View  key={'4'} tabLabel={'Esportes'} style={{flex:1}}>
+        <View  key={'8'} tabLabel={'Esportes'} style={{flex:1}}>
       <></>
       {postsSports.length > 0 ? (
       <FlatList
         data={postsSports}
-        renderItem={ItemView}
-        style={styles.listcontainer}
-        showsVerticalScrollIndicator={false}
-        keyExtractor={(item, index) => index.toString()}
-        refreshControl={
-          <RefreshControl
-            refreshing={refreshing}
-            onRefresh={onRefresh}
-            tintColor="#fff"
-            colors={["#087433"]}
-          />
-        }
-      />
-      ) : (
-        <ActivityIndicator size={'small'} color={'#087433'} style={{flex: 1, justifyContent: 'center', alignItems:'center'}}/>    
-      )}
-        </View>
-        <View  key={'5'} tabLabel={'Entretenimento'} style={{flex:1}}>
-      <></>
-      {postsCulture.length > 0 ? (
-      <FlatList
-        data={postsCulture}
         renderItem={ItemView}
         style={styles.listcontainer}
         showsVerticalScrollIndicator={false}

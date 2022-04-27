@@ -1,7 +1,8 @@
 import React from 'react'
 import { ButtonText, ClickButton, Container, Icon, InfoContainer, InfoText, PageTitleOne, PageTitle, Wrapper, AtentionTitle, PressableLink } from './styles';
 import { Linking, Pressable, Text } from 'react-native'
-import { RFPercentage } from 'react-native-responsive-fontsize';
+import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
+import Ionicons from '@expo/vector-icons/Ionicons';
 
 
 export default function Contact() {
@@ -31,17 +32,20 @@ export default function Contact() {
        >Fale conosco através do nosso telefone:</PageTitle>
             <Pressable
             onPress={() => Linking.openURL('http://api.whatsapp.com/send?phone=5592984357108')}
-            ><PressableLink style={{maxWidth: RFPercentage(17.3), padding: RFPercentage(1)}}>(92) 98435-7108</PressableLink></Pressable>
+            style={{display: 'flex', flexDirection: 'row', maxWidth: RFPercentage(49.3)}}
+            ><PressableLink>(92) 98435-7108 <Ionicons name="logo-whatsapp" size={RFValue(12)} color="white"/></PressableLink></Pressable>
             <PageTitle
        >Fale conosco através do email:</PageTitle>
        <Pressable
             onPress={() => Linking.openURL('mailto:jornalismofiscalizaamazonas@gmail.com')}
-            ><PressableLink  style={{maxWidth: RFPercentage(32.3), padding: RFPercentage(1)}}>jornalismo@fiscalizanews.com.br</PressableLink></Pressable>
+            style={{display: 'flex', flexDirection: 'row', maxWidth: RFPercentage(49.3)}}
+            ><PressableLink >jornalismo@fiscalizanews.com.br <Ionicons name="mail-outline" size={RFValue(12)} color="white"/></PressableLink></Pressable>
              <PageTitle
        >Acesse nossas políticas de privacidade logo abaixo:</PageTitle>
        <Pressable
             onPress={() => Linking.openURL('https://fiscalizanews.com.br/politica-de-privacidade/')}
-            ><PressableLink style={{maxWidth: RFPercentage(23.7), padding: RFPercentage(1)}}>Políticas de Privacidade</PressableLink></Pressable>
+            style={{display: 'flex', flexDirection: 'row', maxWidth: RFPercentage(49.3)}}
+            ><PressableLink>Políticas de Privacidade <Ionicons name="globe-outline" size={RFValue(12)} color="white"/></PressableLink></Pressable>
             </Wrapper>
         </Container>
     )
