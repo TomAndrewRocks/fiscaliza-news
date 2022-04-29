@@ -21,6 +21,7 @@ export default function SearchFeed({navigation}) {
       .then((response) => response.json())
       .then((responseJson) => {
         setPosts(responseJson);
+        setOriginalInfo(responseJson);
         setMasterData(responseJson); 
       })
       .catch((error) => {
@@ -104,7 +105,7 @@ export default function SearchFeed({navigation}) {
 
   function trackDown(s) {
     let arr = JSON.parse(JSON.stringify(originalInfo));
-    setPosts(posts.filter((d) => d.title.rendered.includes(s)))
+    setPosts(arr.filter((d) => d.title.rendered.includes(s)))
   };
 
   return (

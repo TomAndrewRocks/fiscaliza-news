@@ -32,6 +32,7 @@ function BrasilFeed({navigation}) {
       .then((responseJson) => {
         setAllPosts(responseJson);
         setMasterData(responseJson); 
+        setOriginalInfo(responseJson);
       })
       .catch((error) => {
         console.error(error);
@@ -76,7 +77,7 @@ function BrasilFeed({navigation}) {
 
   function trackDown(s) {
     let arr = JSON.parse(JSON.stringify(originalInfo));
-    setAllPosts(allPosts.filter((d) => d.title.rendered.includes(s)))
+    setAllPosts(arr.filter((d) => d.title.rendered.includes(s)))
   };
 
     return (
@@ -127,6 +128,7 @@ function PolitcsFeed({navigation}) {
       .then((responseJson) => {
         setAllPosts(responseJson);
         setMasterData(responseJson); 
+        setOriginalInfo(responseJson);
       })
       .catch((error) => {
         console.error(error);
@@ -171,7 +173,7 @@ function PolitcsFeed({navigation}) {
 
   function trackDown(s) {
     let arr = JSON.parse(JSON.stringify(originalInfo));
-    setAllPosts(allPosts.filter((d) => d.title.rendered.includes(s)))
+    setAllPosts(arr.filter((d) => d.title.rendered.includes(s)))
   };
 
     return (
@@ -222,6 +224,7 @@ function PoliciaFeed({navigation}) {
       .then((responseJson) => {
         setAllPosts(responseJson);
         setMasterData(responseJson); 
+        setOriginalInfo(responseJson);
       })
       .catch((error) => {
         console.error(error);
@@ -266,7 +269,7 @@ function PoliciaFeed({navigation}) {
 
   function trackDown(s) {
     let arr = JSON.parse(JSON.stringify(originalInfo));
-    setAllPosts(allPosts.filter((d) => d.title.rendered.includes(s)))
+    setAllPosts(arr.filter((d) => d.title.rendered.includes(s)))
   };
 
     return (
@@ -317,6 +320,7 @@ function EntretenimentoFeed({navigation}) {
       .then((responseJson) => {
         setAllPosts(responseJson);
         setMasterData(responseJson); 
+        setOriginalInfo(responseJson);
       })
       .catch((error) => {
         console.error(error);
@@ -361,7 +365,7 @@ function EntretenimentoFeed({navigation}) {
 
   function trackDown(s) {
     let arr = JSON.parse(JSON.stringify(originalInfo));
-    setAllPosts(allPosts.filter((d) => d.title.rendered.includes(s)))
+    setAllPosts(arr.filter((d) => d.title.rendered.includes(s)))
   };
 
     return (
@@ -412,6 +416,7 @@ function AMFeed({navigation}) {
       .then((responseJson) => {
         setAllPosts(responseJson);
         setMasterData(responseJson); 
+        setOriginalInfo(responseJson);
       })
       .catch((error) => {
         console.error(error);
@@ -456,7 +461,7 @@ function AMFeed({navigation}) {
 
   function trackDown(s) {
     let arr = JSON.parse(JSON.stringify(originalInfo));
-    setAllPosts(allPosts.filter((d) => d.title.rendered.includes(s)))
+    setAllPosts(arr.filter((d) => d.title.rendered.includes(s)))
   };
 
     return (
@@ -506,7 +511,8 @@ function MundoFeed({navigation}) {
       .then((response) => response.json())
       .then((responseJson) => {
         setAllPosts(responseJson);
-        setMasterData(responseJson); 
+        setMasterData(responseJson);
+        setOriginalInfo(responseJson); 
       })
       .catch((error) => {
         console.error(error);
@@ -551,7 +557,7 @@ function MundoFeed({navigation}) {
 
   function trackDown(s) {
     let arr = JSON.parse(JSON.stringify(originalInfo));
-    setAllPosts(allPosts.filter((d) => d.title.rendered.includes(s)))
+    setAllPosts(arr.filter((d) => d.title.rendered.includes(s)))
   };
 
     return (
@@ -601,6 +607,7 @@ function EsportesFeed({navigation}) {
       .then((response) => response.json())
       .then((responseJson) => {
         setAllPosts(responseJson);
+        setOriginalInfo(responseJson);
         setMasterData(responseJson); 
       })
       .catch((error) => {
@@ -646,7 +653,7 @@ function EsportesFeed({navigation}) {
 
   function trackDown(s) {
     let arr = JSON.parse(JSON.stringify(originalInfo));
-    setAllPosts(allPosts.filter((d) => d.title.rendered.includes(s)))
+    setAllPosts(arr.filter((d) => d.title.rendered.includes(s)))
   };
 
     return (

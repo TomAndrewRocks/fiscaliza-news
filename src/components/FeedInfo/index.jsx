@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, useWindowDimensions, Image, StatusBar } from 'react-native';
 import HTML from 'react-native-render-html';
 import { RFValue } from 'react-native-responsive-fontsize';
-import { FeedPostContainer, FeedPostExcerpt, FeedPostTitle, FeedScroll } from './styles';
+import { FeedPostAuthor, FeedPostContainer, FeedPostExcerpt, FeedPostTitle, FeedScroll } from './styles';
 
 
 export default function Screen2({ route }) {
@@ -18,6 +18,9 @@ export default function Screen2({ route }) {
         <FeedPostTitle style={{fontSize: RFValue(19), color: 'black', marginVertical: 10}}>
         {item.title.rendered.toString().replace("&#8212;", "'").replace("&#8213;", "'").replace("&#8214;", "'").replace("&#8215;", "'").replace("&#8216;", "'").replace("&#8217;", "'").replace("&#8218;", "'").replace("&#8219;", "'").replace("&#8220;", "'").replace("&#8221;", "'")}
         </FeedPostTitle>
+        <View style={{flexDirection: 'row', display: 'flex'}}>
+        <Text style={{marginLeft: RFValue(8), marginVertical: RFValue(5)}}>Por<FeedPostAuthor> {item._embedded.author[0].name}</FeedPostAuthor></Text>
+        </View>
          <View>
               {item._embedded['wp:featuredmedia'].filter(
                 element => element.id == item.featured_media).map((subitem, index) => (

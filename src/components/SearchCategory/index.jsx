@@ -3,15 +3,6 @@ import React from 'react'
 import { RFPercentage, RFValue } from 'react-native-responsive-fontsize';
 import { BaloonTitle, Title } from './styles';
 
-const Brazil = { uri: 'https://i.imgur.com/0pA3lXk.png' };
-const Amazonas = { uri: 'https://i.imgur.com/miqXlRV.png' };
-const Politica = { uri: 'https://i.imgur.com/Qg0hcsT.png' };
-const Polícia = { uri: 'https://i.imgur.com/PcJVaPx.png' };
-const Mundo = { uri: 'https://i.imgur.com/kbA6hDJ.png' };
-const Saúde = { uri: 'https://i.imgur.com/ycqkoeD.png' };
-const Esportes = { uri: 'https://i.imgur.com/fHKzUTm.png' };
-const Entretenimento = { uri: 'https://i.imgur.com/dHlYhpE.png'};
-
 export default function SearchCategory({navigation}) {
   return (
     <ScrollView
@@ -46,13 +37,13 @@ export default function SearchCategory({navigation}) {
               <View style={{marginVertical: RFValue(6), marginHorizontal: RFValue(7), display: 'flex', flexDirection: 'row'}}>
               <TouchableOpacity
               onPress={() => navigation.navigate('BrasilFeed')}>
-              <ImageBackground source={Amazonas} resizeMode="cover" 
+              <ImageBackground  source={require('../../../assets/AM.png')} resizeMode="cover" 
               style={{width: RFPercentage(25), height: RFPercentage(18), marginHorizontal: 10}}>
                <BaloonTitle style={{color: 'white', alignSelf: 'center', paddingTop: RFPercentage(8.2)}}>Amazonas</BaloonTitle>
               </ImageBackground></TouchableOpacity>
               <TouchableOpacity
               onPress={() => navigation.navigate('PolitcsFeed')}>
-              <ImageBackground source={Politica} resizeMode="cover" 
+              <ImageBackground source={require('../../../assets/Politics.png')} resizeMode="cover" 
               style={{width: RFPercentage(25), height: RFPercentage(18)}}>
                <BaloonTitle style={{color: 'white', alignSelf: 'center', paddingTop: RFPercentage(8.2)}}>Política</BaloonTitle>
               </ImageBackground></TouchableOpacity>
@@ -60,13 +51,13 @@ export default function SearchCategory({navigation}) {
               <View style={{marginVertical: RFValue(6), marginHorizontal: RFValue(7), display: 'flex', flexDirection: 'row'}}>
               <TouchableOpacity
               onPress={() => navigation.navigate('PoliciaFeed')}>
-              <ImageBackground source={Polícia} resizeMode="cover" 
+              <ImageBackground source={require('../../../assets/Polícia.png')} resizeMode="cover" 
               style={{width: RFPercentage(25), height: RFPercentage(18), marginHorizontal: 10}}>
                <BaloonTitle style={{color: 'white', alignSelf: 'center', paddingTop: RFPercentage(8.2)}}>Polícia</BaloonTitle>
               </ImageBackground></TouchableOpacity>
               <TouchableOpacity
               onPress={() => navigation.navigate('BrasilFeed')}>
-              <ImageBackground source={Brazil} resizeMode="cover" 
+              <ImageBackground source={require('../../../assets/Brazil.png')} resizeMode="cover" 
               style={{width: RFPercentage(25), height: RFPercentage(18)}}>
                <BaloonTitle style={{color: 'white', alignSelf: 'center', paddingTop: RFPercentage(8.2)}}>Nacional</BaloonTitle>
               </ImageBackground></TouchableOpacity>
@@ -74,13 +65,13 @@ export default function SearchCategory({navigation}) {
               <View style={{marginVertical: RFValue(6), marginHorizontal: RFValue(7), display: 'flex', flexDirection: 'row'}}>
               <TouchableOpacity
               onPress={() => navigation.navigate('MundoFeed')}>
-              <ImageBackground source={Mundo} resizeMode="cover" 
+              <ImageBackground source={require('../../../assets/Mundo.png')} resizeMode="cover" 
               style={{width: RFPercentage(25), height: RFPercentage(18), marginHorizontal: 10}}>
                <BaloonTitle style={{color: 'white', alignSelf: 'center', paddingTop: RFPercentage(8.2)}}>Mundo</BaloonTitle>
               </ImageBackground></TouchableOpacity>
               <TouchableOpacity
               onPress={() => navigation.navigate('EntretenimentoFeed')}>
-              <ImageBackground source={Entretenimento} resizeMode="cover" 
+              <ImageBackground source={require('../../../assets/Fun.png')} resizeMode="cover" 
               style={{width: RFPercentage(25), height: RFPercentage(18)}}>
                <BaloonTitle style={{color: 'white', alignSelf: 'center', paddingTop: RFPercentage(8.2)}}>Entretenimento</BaloonTitle>
               </ImageBackground></TouchableOpacity>
@@ -88,7 +79,7 @@ export default function SearchCategory({navigation}) {
               <View style={{marginVertical: RFValue(6), marginHorizontal: RFValue(7), display: 'flex', flexDirection: 'row'}}>
               <TouchableOpacity
               onPress={() => navigation.navigate('EsportesFeed')}>
-              <ImageBackground source={Esportes} resizeMode="cover" 
+              <ImageBackground source={require('../../../assets/Esportes.png')} resizeMode="cover" 
               style={{width: RFPercentage(25), height: RFPercentage(18), marginHorizontal: 10}}>
                <BaloonTitle style={{color: 'white', alignSelf: 'center', paddingTop: RFPercentage(8.2)}}>Esportes</BaloonTitle>
               </ImageBackground></TouchableOpacity>

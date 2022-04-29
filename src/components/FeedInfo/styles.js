@@ -28,11 +28,16 @@ export const FeedPostTitle = styled.Text`
   width: ${RFPercentage(47)}px;
 `
 
-export const FeedPostDate = styled.Text`
+export const FeedPostAuthor = styled.Text`
   
-  
-`
+  font-family: ${({theme}) => theme.fonts.medium};
+  color: black;
+  align-self: center;
+  text-align: left;
+  width: ${RFPercentage(47)}px;
+  margin: 10px;
 
+`
 
 export const FeedPostExcerpt = styled.View`
   margin: 0 8px;

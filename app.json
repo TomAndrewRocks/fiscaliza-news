@@ -3,7 +3,7 @@
     "name": "Fiscaliza News",
     "slug": "fiscaliza-news",
     "description": "Protótipo #01",
-    "version": "1.0.6",
+    "version": "1.0.8",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "splash": {
@@ -25,7 +25,7 @@
     },
     "android": {
       "package": "com.mariobondo.fiscalizanews",
-      "versionCode": 6,
+      "versionCode": 8,
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#161616"
